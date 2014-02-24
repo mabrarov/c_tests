@@ -94,7 +94,7 @@ struct fmt_part_t
 char *fmt_part_cat(size_t total_len, const struct fmt_part_t *parts, 
 		size_t count)
 {
-	char *const dst = str_alloc(total_len);
+	char * const dst = str_alloc(total_len);
 	if (NULL != dst)
 	{
 		char *str = dst; 
@@ -119,7 +119,7 @@ size_t str_printf(char **dst, const char *fmt, ...)
 		if (NULL != fmt)
 		{
 			const size_t part_count = count_placeholders(fmt) * 2 + 1;
-			struct fmt_part_t *const parts = (struct fmt_part_t *) malloc(
+			struct fmt_part_t * const parts = (struct fmt_part_t *) malloc(
 					sizeof(struct fmt_part_t) * part_count);
 			if (NULL == parts)
 			{
@@ -148,7 +148,7 @@ size_t str_printf(char **dst, const char *fmt, ...)
 					}
 					if (NULL != placeholder_pos)
 					{
-						const char *arg = va_arg(arg_list, const char *);
+						const char * const arg = va_arg(arg_list, const char *);
 						if (NULL != arg)
 						{
 							const size_t arg_len = strlen(arg);
